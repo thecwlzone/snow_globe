@@ -1,0 +1,66 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.stripe.com/v1/accounts
+    body:
+      encoding: UTF-8
+      string: country=US&managed=true
+    headers:
+      User-Agent:
+      - Stripe/v1 RubyBindings/3.8.2
+      Authorization:
+      - Bearer sk_test_cQ27CjeGmTY8IYOdtcVFu0RD
+      Content-Type:
+      - application/x-www-form-urlencoded
+      X-Stripe-Client-User-Agent:
+      - '{"bindings_version":"3.8.2","lang":"ruby","lang_version":"2.4.1 p111 (2017-03-22)","platform":"x86_64-darwin16","engine":"ruby","publisher":"stripe","uname":"Darwin
+        COTNPL-4GUG5RP 16.7.0 Darwin Kernel Version 16.7.0: Mon Nov 13 21:56:25 PST
+        2017; root:xnu-3789.72.11~1/RELEASE_X86_64 x86_64","hostname":"COTNPL-4GUG5RP"}'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 08 Dec 2017 18:20:54 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '134'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST, HEAD, OPTIONS, DELETE
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - X-Stripe-Privileged-Session-Required,stripe-manage-version,X-Stripe-External-Auth-Required
+      Access-Control-Max-Age:
+      - '300'
+      Cache-Control:
+      - no-cache, no-store
+      Stripe-Version:
+      - '2017-08-15'
+      Www-Authenticate:
+      - Bearer realm="Stripe"
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "error": {
+            "type": "invalid_request_error",
+            "message": "Expired API Key provided: sk_test_********************u0RD"
+          }
+        }
+    http_version: 
+  recorded_at: Fri, 08 Dec 2017 18:20:53 GMT
+recorded_with: VCR 4.0.0

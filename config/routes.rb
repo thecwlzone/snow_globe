@@ -7,6 +7,7 @@
 # Visit http://www.pragmaticprogrammer.com/titles/nrwebpay for more book information.
 #---
 Rails.application.routes.draw do
+  # devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root to: "visitors#index"
 

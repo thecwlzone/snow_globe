@@ -49,6 +49,7 @@ spec/examples.txt
 /capybara-*.html
 /gems
 /specifications
+README.cwl
 rerun.txt
 pickle-email-*.html
 .zeus.sock

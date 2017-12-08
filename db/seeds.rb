@@ -19,3 +19,4 @@ ActiveRecord::FixtureSet.create_fixtures(
     "#{Rails.root}/spec/fixtures", "tickets")
 ActiveRecord::FixtureSet.create_fixtures(
     "#{Rails.root}/spec/fixtures", "users")
+User.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

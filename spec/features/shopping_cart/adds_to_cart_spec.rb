@@ -9,16 +9,16 @@
 require "rails_helper"
 
 describe "adding to cart" do
-  fixtures :all 
+  fixtures :all
 
   it "can add a performance to a cart" do
-    login_as(users(:buyer), scope: :user) 
-    visit event_path(events(:bums)) 
+    login_as(users(:buyer), scope: :user)
+    visit event_path(events(:bums))
     performance = events(:bums).performances.first
     within("#performance_#{performance.id}") do
       select("2", from: "ticket_count")
       click_on("add-to-cart")
-    end 
+    end
     expect(current_url).to match("cart")
     within("#event_#{events(:bums).id}") do
       within("#performance_#{performance.id}") do

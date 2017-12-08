@@ -24,6 +24,6 @@
 //= require jquery.payment
 //= require turbolinks
 //= require jquery.cardswipe
-//= require purchases_cart
-//= require edits_affiliate
+// require purchases_cart
+// require edits_affiliate
 //= require_tree .
