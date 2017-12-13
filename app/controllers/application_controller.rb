@@ -7,7 +7,6 @@
 # Visit http://www.pragmaticprogrammer.com/titles/nrwebpay for more book information.
 #---
 class ApplicationController < ActionController::Base
-
   protect_from_forgery with: :exception
 
   before_action :set_paper_trail_whodunnit
@@ -35,7 +34,7 @@ class ApplicationController < ActionController::Base
   helper_method :simulating_admin_user
 
   def authenticate_admin_user!
-    raise Pundit::NotAuthorizedError unless current_user&.admin?
+    fail Pundit::NotAuthorizedError unless current_user&.admin?
   end
 
   before_action :set_affiliate
@@ -51,5 +50,4 @@ class ApplicationController < ActionController::Base
     sign_out(User)
     render plain: "Access Not Allowed", status: :forbidden
   end
-
 end

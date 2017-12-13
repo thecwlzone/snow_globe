@@ -7,9 +7,8 @@
 # Visit http://www.pragmaticprogrammer.com/titles/nrwebpay for more book information.
 #---
 class Users::SessionsController < Devise::SessionsController
-
   skip_before_action :set_paper_trail_whodunnit
-  skip_after_action :warn_about_not_setting_whodunnit
+  # skip_after_action :warn_about_not_setting_whodunnit
 
   def create
     @user = User.find_by(email: params[:user][:email])
@@ -27,8 +26,7 @@ class Users::SessionsController < Devise::SessionsController
     end
   end
 
-  def two_factor
-  end
+  def two_factor; end
 
   def verify
     @user = User.find(session[:awaiting_authy_user_id])
@@ -49,5 +47,4 @@ class Users::SessionsController < Devise::SessionsController
     session[:awaiting_authy_user_id] = nil
     super
   end
-
 end

@@ -9,15 +9,12 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable,
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_paper_trail ignore: %i(sign_in_count current_sign_in_at last_sign_in_at)
+  has_paper_trail ignore: %i[sign_in_count current_sign_in_at last_sign_in_at]
 
-  devise :database_authenticatable,
-      :recoverable, :rememberable, :trackable, :validatable
-
-  enum role: {user: 0, vip: 1, admin: 2}
+  enum role: { user: 0, vip: 1, admin: 2 }
 
   has_many :tickets
   has_many :subscriptions
@@ -34,5 +31,4 @@ class User < ApplicationRecord
   def subscriptions_in_cart
     subscriptions.waiting.all.to_a
   end
-
 end

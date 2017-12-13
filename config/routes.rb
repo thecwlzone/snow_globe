@@ -11,10 +11,9 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   root to: "visitors#index"
 
-  resource :user_simulation, only: %i(create destroy)
+  resource :user_simulation, only: %i[create destroy]
 
-  devise_for :users, controllers: {
-      sessions: "users/sessions"}
+  devise_for :users, controllers: { sessions: "users/sessions" }
 
   devise_scope :user do
     post "users/sessions/verify" => "Users::SessionsController"

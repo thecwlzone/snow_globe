@@ -7,8 +7,8 @@
 # Visit http://www.pragmaticprogrammer.com/titles/nrwebpay for more book information.
 #---
 class StripeAccount
-
-  attr_accessor :affiliate, :account, :tos_checked, :request_ip
+  # attr_accessor :affiliate, :account, :tos_checked, :request_ip
+  attr_accessor :affiliate, :tos_checked, :request_ip
 
   def initialize(affiliate, tos_checked: false, request_ip: nil, account: nil)
     @affiliate = affiliate
@@ -30,11 +30,12 @@ class StripeAccount
   def update_affiliate_verification
     Affiliate.transaction do
       affiliate.update(
-          stripe_charges_enabled: account.charges_enabled,
-          stripe_transfers_enabled: account.transfers_enabled,
-          stripe_disabled_reason: account.verification.disabled_reason,
-          stripe_validation_due_by: account.verification.due_by,
-          verification_needed: account.verification.fields_needed)
+        stripe_charges_enabled: account.charges_enabled,
+        stripe_transfers_enabled: account.transfers_enabled,
+        stripe_disabled_reason: account.verification.disabled_reason,
+        stripe_validation_due_by: account.verification.due_by,
+        verification_needed: account.verification.fields_needed
+      )
     end
   end
 
@@ -56,9 +57,9 @@ class StripeAccount
   end
 
   private def create_account
-    account_params = {country: affiliate.country, managed: true}
+    account_params = { country: affiliate.country, type: "standard" }
     if tos_checked
-      account_params[:tos_acceptance] = {date: Time.now.to_i, ip: request_ip}
+      account_params[:tos_acceptance] = { date: Time.now.to_i, ip: request_ip }
     end
     Stripe::Account.create(account_params)
   end
@@ -66,5 +67,4 @@ class StripeAccount
   private def retrieve_account
     Stripe::Account.retrieve(affiliate.stripe_id)
   end
-
 end
