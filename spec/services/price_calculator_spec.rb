@@ -122,13 +122,14 @@ RSpec.describe PriceCalculator, :aggregate_failures do
     end
   end
 
+  # Note: this VCR is obsolete, but generating a new one breaks the API call
   describe "with taxes", :vcr do
     let(:user) { build_stubbed(:user) }
     let(:address) { build_stubbed(:address) }
-    let(:calculator) {
+    let(:calculator) do
       PriceCalculator.new([ticket_one, ticket_two], discount_code, :standard,
                           user: user, address: address, tax_id: "cart_01")
-    }
+    end
     let(:discount_code) { NullDiscountCode.new }
 
     it "calculates the price of a list of tickets" do

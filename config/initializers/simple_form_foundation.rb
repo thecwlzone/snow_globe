@@ -17,8 +17,10 @@ SimpleForm.setup do |config|
   # Uncomment them to enable hints.
 
   config.wrappers(
-      :vertical_form, class: :input,
-                      hint_class: :field_with_hint, error_class: :error) do |b|
+    :vertical_form,
+    class: :input,
+    hint_class: :field_with_hint, error_class: :error
+  ) do |b|
     b.use :html5
     b.use :placeholder
     b.optional :maxlength
@@ -26,15 +28,17 @@ SimpleForm.setup do |config|
     b.optional :min_max
     b.optional :readonly
     b.use :label_input
-    b.use :error, wrap_with: {tag: :small, class: :error}
+    b.use :error, wrap_with: { tag: :small, class: :error }
 
     # b.use :hint,  wrap_with: { tag: :span, class: :hint }
   end
 
   config.wrappers(
-      :horizontal_form, tag: "div",
-                        class: "row", hint_class: :field_with_hint,
-                        error_class: :error) do |b|
+    :horizontal_form,
+    tag: "div",
+    class: "row", hint_class: :field_with_hint,
+    error_class: :error
+  ) do |b|
     b.use :html5
     b.use :placeholder
     b.optional :maxlength
@@ -48,25 +52,29 @@ SimpleForm.setup do |config|
 
     b.wrapper :right_input_wrapper, tag: :div, class: "small-9 columns" do |ba|
       ba.use :input
-      ba.use :error, wrap_with: {tag: :small, class: :error}
+      ba.use :error, wrap_with: { tag: :small, class: :error }
       # ba.use :hint,  wrap_with: { tag: :span, class: :hint }
     end
   end
 
-  config.wrappers(:horizontal_radio_and_checkboxes,
-      tag: "div", class: "row") do |b|
+  config.wrappers(
+    :horizontal_radio_and_checkboxes,
+    tag: "div", class: "row"
+  ) do |b|
     b.use :html5
     b.optional :readonly
 
     b.wrapper(
-        :container_wrapper, tag: "div",
-                            class: "small-offset-3 small-9 columns") do |ba|
+      :container_wrapper,
+      tag: "div",
+      class: "small-offset-3 small-9 columns"
+    ) do |ba|
       ba.wrapper tag: "label", class: "checkbox" do |bb|
         bb.use :input
         bb.use :label_text
       end
 
-      ba.use :error, wrap_with: {tag: :small, class: :error}
+      ba.use :error, wrap_with: { tag: :small, class: :error }
       # ba.use :hint,  wrap_with: { tag: :span, class: :hint }
     end
   end
@@ -79,8 +87,10 @@ SimpleForm.setup do |config|
   # columns form then change the wrapper class to 'small-3', if you need
   # only two use 'small-6' and so on.
   config.wrappers(
-      :inline_form, tag: "div", class: "column small-4",
-                    hint_class: :field_with_hint, error_class: :error) do |b|
+    :inline_form,
+    tag: "div", class: "column small-4",
+    hint_class: :field_with_hint, error_class: :error
+  ) do |b|
     b.use :html5
     b.use :placeholder
     b.optional :maxlength
@@ -91,7 +101,7 @@ SimpleForm.setup do |config|
     b.use :label, class: "hidden-for-small-up"
     b.use :input
 
-    b.use :error, wrap_with: {tag: :small, class: :error}
+    b.use :error, wrap_with: { tag: :small, class: :error }
     # b.use :hint,  wrap_with: { tag: :span, class: :hint }
   end
 
@@ -107,7 +117,7 @@ SimpleForm.setup do |config|
       ba.use :label_input
     end
 
-    b.use :error, wrap_with: {tag: :small, class: :error}
+    b.use :error, wrap_with: { tag: :small, class: :error }
     # b.use :hint,  wrap_with: { tag: :span, class: :hint }
   end
 

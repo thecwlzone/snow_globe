@@ -8,8 +8,8 @@
 #---
 unless Rails.env.test? || Rails.env.production?
 
-  options = {forward_emails_to: "noel@noelrappin.com",
-             deliver_emails_to: ["@snowglobetheater.com"]}
+  options = { forward_emails_to: "noel@noelrappin.com",
+              deliver_emails_to: ["@snowglobetheater.com"] }
 
   interceptor = MailInterceptor::Interceptor.new(options)
   ActionMailer::Base.register_interceptor(interceptor)

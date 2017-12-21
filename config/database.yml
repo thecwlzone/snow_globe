@@ -6,7 +6,7 @@ development:
   pool:     5
   username: sg_user
   password: sg_user!
-  template: template0
+  template: template1
 
 test:
   adapter:  postgresql
@@ -15,5 +15,5 @@ test:
   database: snow_globe_test
   pool:     5
   username: sg_user
-  password: sg_user!
-  template: template0
+  password: <%= ENV['SG_USER_DATABASE_PASSWORD'] %>
+  template: template1

@@ -6,9 +6,9 @@
 # We make no guarantees that this code is fit for any purpose.
 # Visit http://www.pragmaticprogrammer.com/titles/nrwebpay for more book information.
 #---
-%w(
-    .ruby-version
-    .rbenv-vars
-    tmp/restart.txt
-    tmp/caching-dev.txt
-).each { |path| Spring.watch(path) }
+%w[
+  .ruby-version
+  .rbenv-vars
+  tmp/restart.txt
+  tmp/caching-dev.txt
+].each { |path| Spring.watch(path) }
