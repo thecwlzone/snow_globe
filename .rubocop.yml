@@ -1,16 +1,22 @@
 AllCops:
-  Include:
-    - Rakefile
-    - lib/**/*.rake
   Exclude:
     - db/schema.rb
     - db/migrate/*.rb
+    - bin/bundle
+    - bin/delayed_job
     - bin/rails
     - bin/rake
+    - bin/rspec
+    - bin/setup
     - bin/spring
+    - bin/update
+    - bin/webpack
+    - bin/webpack-dev-server
+    - bin/yarn
+    - "node_modules/**/*"
     - "vendor/**/*"
     - "*.gemspec"
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.6
 
 Bundler/OrderedGems:
   Enabled: false
@@ -66,8 +72,10 @@ Style/SignalException:
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
-Style/TrailingCommaInLiteral:
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+Style/TrailingCommaInArrayLiteral:
   EnforcedStyleForMultiline: comma
 
-Style/UnneededPercentQ:
+Style/RedundantPercentQ:
   Enabled: false

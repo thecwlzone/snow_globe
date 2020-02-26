@@ -1,6 +1,5 @@
 source "https://rubygems.org"
-ruby "2.4.1"
-gem "rails", "~> 5.1.4"
+gem "rails", "~> 5.2"
 
 gem "awesome_print"
 gem "authy"
@@ -26,7 +25,7 @@ gem "slim-rails"
 gem "stripe"
 gem "tax_cloud"
 gem "turbolinks"
-gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
+# gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 gem "uglifier"
 gem "whenever", require: false
 

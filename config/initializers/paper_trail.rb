@@ -6,4 +6,4 @@
 # We make no guarantees that this code is fit for any purpose.
 # Visit http://www.pragmaticprogrammer.com/titles/nrwebpay for more book information.
 #---
-PaperTrail.config.track_associations = false
+# PaperTrail.config.track_associations = false
